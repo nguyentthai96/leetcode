@@ -1,12 +1,23 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm") version "1.9.20"
     application
 }
 
 group = "com.nguyentthai96.leetcode"
 version = "1.0-SNAPSHOT"
+
+
+kotlin {
+    jvmToolchain(21)
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
 
 repositories {
     mavenCentral()
@@ -27,3 +38,8 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("MainKt")
 }
+
+
+
+//Compatibility Matrix
+//https://docs.gradle.org/current/userguide/compatibility.html
